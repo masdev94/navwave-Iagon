@@ -1,0 +1,123 @@
+body {
+    background-color: black;
+    font-family: sans-serif;
+    display: grid;
+    height: 100%;
+    height: stretch;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav {
+    border: 1px solid #585a5e;
+    width: 60dvw;
+    margin: 10% auto;
+    border-radius: 2rem;
+}
+
+.menu {
+    color: gray;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: end;
+    padding: 0 1rem;
+}
+
+.item {
+    position: relative;
+}
+
+@keyframes bounceIn {
+    0% {
+        scale: 1;
+        translate: 0 30px;
+    }
+    40% {
+        scale: 1.2;
+        translate: 0 0;
+    }
+    60% {
+        scale: 0.95;
+    }
+    80% {
+        scale: 1.05;
+    }
+    100% {
+        scale: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes bounceOut {
+    0% {
+        scale: 1;
+        translate: 0 0;
+    }
+    40% {
+        scale: 0.9;
+        translate: 0 30px;
+    }
+    60% {
+        scale: 1.02;
+    }
+    80% {
+        scale: 0.98;
+    }
+    100% {
+        scale: 1;
+        translate: 0 30px;
+    }
+}
+
+.item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    width: 100px;
+    height: 30px;
+    margin: 0 auto;
+    background-color: white;
+    pointer-events: none;
+    clip-path: path("M0,30 S-20,30,0,30 S30,15,50,15 S80,30,100,30 Z");
+    translate: 0 30px;
+    transform-origin: center bottom;
+}
+
+.item:has(.link:target)::before {
+    translate: 0 0;
+}
+
+.item:has(.link.ready)::before {
+    animation: bounceOut 0.8s ease forwards;
+}
+
+.item:has(.link.ready:target)::before {
+    animation: bounceIn 0.8s ease forwards;
+}
+
+.link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    padding: 2rem 1.5rem;
+}
+
+.link:focus-visible {
+    outline: none;
+}
+
+.link:hover,
+.link:focus-visible,
+.link:target {
+    color: #2b75ed;
+}
+
+.content {
+    background-color: white;
+    border-radius: 2rem;
+    height: 300px;
+}

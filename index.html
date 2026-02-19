@@ -1,63 +1,30 @@
 <!doctype html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Nav Wave Component</title>
-        <link rel="stylesheet" href="styles.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet"
-        />
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <div class="nav-container" id="nav-container">
-            <nav class="navbar" aria-label="Primary navigation">
-                <button class="nav-item" data-tab="first" type="button">
-                    MenuItem
-                    <span class="wave-bump" aria-hidden="true">
-                        <svg
-                            viewBox="0 0 190 35"
-                            preserveAspectRatio="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M0 35C42 35 60 35 76 27C85 22 88 13 95 13C102 13 105 22 114 27C130 35 148 35 190 35Z"
-                                fill="#E6EBF5"
-                            />
-                        </svg>
-                    </span>
-                </button>
-
-                <button class="nav-item active" data-tab="second" type="button">
-                    MenuItem
-                    <span class="wave-bump" aria-hidden="true">
-                        <svg
-                            viewBox="0 0 190 35"
-                            preserveAspectRatio="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M0 35C42 35 60 35 76 27C85 22 88 13 95 13C102 13 105 22 114 27C130 35 148 35 190 35Z"
-                                fill="#E6EBF5"
-                            />
-                        </svg>
-                    </span>
-                </button>
-            </nav>
-
-            <section class="dropdown" id="dropdown" aria-live="polite">
-                <div class="tab-panel" id="panel-first">
-                    First panel content
-                </div>
-                <div class="tab-panel active" id="panel-second">
-                    Second panel content
-                </div>
-            </section>
-        </div>
-
-        <script src="script.js"></script>
+        <nav class="nav">
+            <ul class="menu">
+                <li class="item">
+                    <a class="link" id="item-1" href="#item-1">Menu Item</a>
+                </li>
+                <li class="item">
+                    <a class="link" id="item-2" href="#item-2">Menu Item</a>
+                </li>
+            </ul>
+            <div class="content"></div>
+        </nav>
     </body>
+
+    <script>
+        // activate
+        document.addEventListener("click", (event) => {
+            if (event.target.closest(".link")) {
+                for (const link of document.querySelectorAll(".link")) {
+                    link.classList.add("ready");
+                }
+            }
+        });
+    </script>
 </html>
